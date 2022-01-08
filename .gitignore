@@ -129,7 +129,7 @@ dmypy.json
 .pyre/
 
 # PyCharm .idea
-.idea
+.idea/
 
 # Homework Instructions Folder
-Instructions
+Instructions/
