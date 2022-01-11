@@ -10,19 +10,28 @@ analysis_path = os.path.join("Analysis", "analysis.txt")
 
 # Open file to read with csv module
 with open(data_path, "r") as csv_file:
-    # Set variables that need to be referenced inside the different scopes
-    months = 0
-    net_total = 0
-    previous_amt = 0
-    list_of_diff = []
-    greatest_increase = 0
-    greatest_decrease = 0
 
     # Create csv reader object
     csvreader = csv.reader(csv_file, delimiter=",")
 
     # Skip header
     header = next(csvreader, None)
+
+    # "Skipped" first month acts as the base for ease of calculations
+    first_month = next(csvreader, None)
+
+    # Set variables that need to be referenced inside the different scopes
+    # months starts at 1 to account for the first month
+    months = 1
+    # net_total starts with the profit/loss of the first month
+    net_total = int(first_month[1])
+    # previous_amt starts with the profit/loss of the first month to avoid needing to delete the first month later
+    previous_amt = int(first_month[1])
+    # list to store all the profit/loss differences between months
+    list_of_diff = []
+    # keeps track of the greatest increase and decreases in profit/loss between months
+    greatest_increase = 0
+    greatest_decrease = 0
 
     # For each row (as list) in the csv...
     for row in csvreader:
@@ -52,10 +61,6 @@ with open(data_path, "r") as csv_file:
         previous_amt = int(row[1])
 
     # After the csv has been read entirely...
-
-    # Get rid of the first value in the list of differences, as the first month
-    # was checked against an initial value of 0
-    list_of_diff.pop(0)
 
     # Find the mean among the values found from the differences between each month and round to two cents
     avg_change = round(sum(list_of_diff) / len(list_of_diff), 2)
