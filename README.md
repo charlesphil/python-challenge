@@ -139,7 +139,7 @@ readable.
 
 ![Pypoll output](Images/pypoll_output.png)
 
-Using the same idea from Pybank, I created a list of items to be outputted to the console and the text file, with each
+Using the same idea from PyBank, I created a list of items to be outputted to the console and the text file, with each
 item representing a line. When it came time to writing the candidates' information, I called the function I made
 (**calc_percent**) which generates the f-string for me.
 
