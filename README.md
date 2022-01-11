@@ -22,7 +22,7 @@ Because of how my loop is structured, I need to account for the fact that the fi
 **"base"** for my analysis. The average change, the greatest increase, and the greatest decrease all use the first
 month as the *starting point*, meaning that it would make more sense to have those variables come as a result of 
 calculating *from* the first month. As a result, I opted to have the reader read through this second row (i.e., the
-second month) and store that first month's profit/loss into the **net_total** and **previous_amt**. The **previous_amt**
+first month) and store that first month's profit/loss into the **net_total** and **previous_amt**. The **previous_amt**
 is especially important to do in this manner because we are primarily concerned with changes *between* months, as shown
 later in my for loop. The **months** variable will therefore start at 1 to account for this first month. The 
 **greatest_increase** and **greatest_decrease** variables start at 0 for now but will be updated to reflect the biggest
